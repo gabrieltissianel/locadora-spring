@@ -2,6 +2,7 @@ package com.locadora.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.locadora.application.ClasseApplication;
 import com.locadora.model.Classe;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -23,12 +25,12 @@ public class ClasseController {
     private final ClasseApplication classeApplication;
 
     @GetMapping("/list")
-    public List<Classe> list() {
+    public ResponseEntity<List<Classe>> list() {
         return classeApplication.list();
     }
 
     @PostMapping("/add")
-    public Classe add(@RequestBody Classe classe) {
+    public ResponseEntity<Classe> add(@Valid @RequestBody Classe classe) {
         return classeApplication.add(classe);
     }
 
@@ -38,7 +40,7 @@ public class ClasseController {
     }
 
     @PostMapping("/edit")
-    public Classe edit(@RequestBody Classe classe) {
+    public ResponseEntity<Classe> edit(@Valid @RequestBody Classe classe) {
         return classeApplication.update(classe);
     }
 }

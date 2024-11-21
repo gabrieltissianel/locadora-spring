@@ -15,7 +15,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Diretor {
+public class Diretor implements Identity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
