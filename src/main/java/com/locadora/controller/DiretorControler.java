@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.locadora.application.DiretorApplication;
-import com.locadora.dto.DiretorDTO;
 import com.locadora.model.Diretor;
 
 import lombok.AllArgsConstructor;
@@ -24,12 +23,12 @@ public class DiretorControler {
     private final DiretorApplication diretorApplication;
 
     @GetMapping("/list")
-    public List<DiretorDTO> list() {
+    public List<Diretor> list() {
         return diretorApplication.list();
     }
 
     @PostMapping("/add")
-    public Diretor add(@RequestBody DiretorDTO diretor) {
+    public Diretor add(@RequestBody Diretor diretor) {
         return diretorApplication.add(diretor);
     }
 
@@ -39,7 +38,7 @@ public class DiretorControler {
     }
 
     @PostMapping("/edit")
-    public Diretor edit(@RequestBody DiretorDTO diretor) {
+    public Diretor edit(@RequestBody Diretor diretor) {
         return diretorApplication.update(diretor);
     }
 }

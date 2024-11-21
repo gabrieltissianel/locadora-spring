@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.locadora.application.ItemApplication;
-import com.locadora.dto.ItemDTO;
 import com.locadora.model.Item;
 
 import lombok.AllArgsConstructor;
@@ -24,12 +23,12 @@ public class ItemController {
     private final ItemApplication itemApplication;
 
     @GetMapping("/list")
-    public List<ItemDTO> list() {
+    public List<Item> list() {
         return itemApplication.list();
     }
 
     @PostMapping("/add")
-    public Item add(@RequestBody ItemDTO item) {
+    public Item add(@RequestBody Item item) {
         return itemApplication.add(item);
     }
 
@@ -39,7 +38,7 @@ public class ItemController {
     }
 
     @PostMapping("/edit")
-    public Item edit(@RequestBody ItemDTO item) {
+    public Item edit(@RequestBody Item item) {
         return itemApplication.update(item);
     }
 }

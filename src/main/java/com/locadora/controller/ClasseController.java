@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.locadora.application.ClasseApplication;
-import com.locadora.dto.ClasseDTO;
 import com.locadora.model.Classe;
 
 import lombok.AllArgsConstructor;
@@ -24,12 +23,12 @@ public class ClasseController {
     private final ClasseApplication classeApplication;
 
     @GetMapping("/list")
-    public List<ClasseDTO> list() {
+    public List<Classe> list() {
         return classeApplication.list();
     }
 
     @PostMapping("/add")
-    public Classe add(@RequestBody ClasseDTO classe) {
+    public Classe add(@RequestBody Classe classe) {
         return classeApplication.add(classe);
     }
 
@@ -39,7 +38,7 @@ public class ClasseController {
     }
 
     @PostMapping("/edit")
-    public Classe edit(@RequestBody ClasseDTO classe) {
+    public Classe edit(@RequestBody Classe classe) {
         return classeApplication.update(classe);
     }
 }

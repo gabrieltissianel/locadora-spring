@@ -5,24 +5,20 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import com.locadora.dto.Identity;
-
 import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public abstract class GenericApplication<E extends Object, D extends Identity> {
+public abstract class GenericApplication<E extends Object> {
 
     protected final JpaRepository<E, Long> objRepository;
 
-    public List<D> list() {
-        return objRepository.findAll().stream()
-                .map(this::toDTO).toList();
+    public List<E> list() {
+        return objRepository.findAll();
     }
 
-    public E add(D dto) {
+    public E add(E obj) {
         try {
-            E obj = toEntity(dto);
             objRepository.save(obj);
             return obj;
         } catch (Exception e) {
@@ -34,17 +30,12 @@ public abstract class GenericApplication<E extends Object, D extends Identity> {
         objRepository.deleteById(id);
     }
 
-    public E update(D dto) {
+    public E update(E obj) {
         try {
-            E obj = toEntity(dto);
             objRepository.save(obj);
             return obj;
         } catch (Exception e) {
             return null;
         }
     }
-
-    protected abstract E toEntity(D objDTO);
-
-    protected abstract D toDTO(E obj);
 }

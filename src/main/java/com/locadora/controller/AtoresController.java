@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.locadora.application.AtorApplication;
-import com.locadora.dto.AtorDTO;
 import com.locadora.model.Ator;
 
 import lombok.AllArgsConstructor;
@@ -24,12 +23,12 @@ public class AtoresController {
     private final AtorApplication atorApplication;
 
     @GetMapping("/list")
-    public List<AtorDTO> list() {
+    public List<Ator> list() {
         return atorApplication.list();
     }
 
     @PostMapping("/add")
-    public Ator add(@RequestBody AtorDTO ator) {
+    public Ator add(@RequestBody Ator ator) {
         return atorApplication.add(ator);
     }
 
@@ -39,7 +38,7 @@ public class AtoresController {
     }
 
     @PostMapping("/edit")
-    public Ator edit(@RequestBody AtorDTO ator) {
+    public Ator edit(@RequestBody Ator ator) {
         return atorApplication.update(ator);
     }
 

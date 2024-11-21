@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.locadora.application.TituloApplication;
-import com.locadora.dto.TituloDTO;
 import com.locadora.model.Titulo;
 
 import lombok.AllArgsConstructor;
@@ -24,12 +23,12 @@ public class TituloController {
     private final TituloApplication tituloApplication;
 
     @GetMapping("/list")
-    public List<TituloDTO> list() {
+    public List<Titulo> list() {
         return tituloApplication.list();
     }
 
     @PostMapping("/add")
-    public Titulo add(@RequestBody TituloDTO titulo) {
+    public Titulo add(@RequestBody Titulo titulo) {
         return tituloApplication.add(titulo);
     }
 
@@ -39,7 +38,7 @@ public class TituloController {
     }
 
     @PostMapping("/edit")
-    public Titulo edit(@RequestBody TituloDTO titulo) {
+    public Titulo edit(@RequestBody Titulo titulo) {
         return tituloApplication.update(titulo);
     }
 }
