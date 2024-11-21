@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.locadora.model.Diretor;
 
-
 @Service
 public class DiretorApplication extends GenericApplication<Diretor> {
 

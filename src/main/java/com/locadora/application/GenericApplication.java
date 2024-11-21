@@ -5,13 +5,14 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import com.locadora.model.Identity;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public abstract class GenericApplication<E extends Identity> {
+public class GenericApplication<E extends Identity> {
 
     protected final JpaRepository<E, Long> objRepository;
 
