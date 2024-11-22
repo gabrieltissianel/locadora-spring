@@ -35,9 +35,6 @@ public class Titulo implements Identity{
 
     private String categoria;
 
-    @OneToMany(mappedBy = "titulo")
-    private List<Item> items;
-
     @ManyToOne
     private Diretor diretor;
 
