@@ -1,14 +1,12 @@
 package com.locadora.model;
 
 import java.util.Date;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -29,7 +27,4 @@ public class Classe implements Identity{
     private double value;
 
     private Date prazoDevolucao;
-
-    @OneToMany(mappedBy = "classe")
-    private List<Titulo> titulos;
 }

@@ -3,6 +3,8 @@ package com.locadora.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +27,4 @@ public class Diretor implements Identity{
     @NotEmpty(message = "Nome vazio")
     @Column(length = 100, nullable = false)
     private String name;
-
-    @OneToMany(mappedBy = "diretor")
-    List<Titulo> titulos;
 }
