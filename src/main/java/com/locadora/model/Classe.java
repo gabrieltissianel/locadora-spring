@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
@@ -24,7 +25,10 @@ public class Classe implements Identity{
     @Column(length = 100, nullable = false)
     private String name;
 
+    @NotNull(message = "Valor nulo")
+    @Size(min = 0, message = "Valor menor que 0")
     private double value;
 
+    @NotNull(message = "Data nula")
     private Date prazoDevolucao;
 }

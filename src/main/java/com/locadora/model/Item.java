@@ -19,9 +19,11 @@ public class Item implements Identity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull(message = "Número de série vazio.")
     @Column(unique = true, nullable = false)
     private int numSerie;
 
+    @NotNull(message = "Data vazia")
     @Column(nullable = false)
     private Date dtAquisicao;
 
@@ -30,6 +32,7 @@ public class Item implements Identity{
     @Column(length = 100, nullable = false)
     private String tipoItem;
 
+    @NotNull(message = "Titulo nulo")
     @ManyToOne
     private Titulo titulo;
 }

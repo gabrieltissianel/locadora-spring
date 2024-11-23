@@ -1,9 +1,6 @@
 package com.locadora.model;
 
-import java.sql.Date;
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,9 +11,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
@@ -32,16 +29,25 @@ public class Titulo implements Identity{
     @Column(length = 100, nullable = false)
     private String nome;
 
+    @Size(min = 0)
     @Column(nullable = false)
     private int ano;
 
+    @NotEmpty(message = "Sinopse vazia")
     private String sinopse;
 
+    @NotEmpty(message = "Categoria vazia")
     private String categoria;
 
+    @NotEmpty(message = "Diretor vazio")
     @ManyToOne
     private Diretor diretor;
 
+    @NotEmpty(message = "Classe vazia")
+    @ManyToOne
+    private Classe classe;
+
+    @NotEmpty(message = "Atores vazios")
     @ManyToMany
     @JoinTable(
         name = "ator_titulo",
@@ -49,7 +55,4 @@ public class Titulo implements Identity{
         inverseJoinColumns = @JoinColumn(name = "ator_id")
     )
     private List<Ator> ator;
-
-    @ManyToOne
-    private Classe classe;
 }
