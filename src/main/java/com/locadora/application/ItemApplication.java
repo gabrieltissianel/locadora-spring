@@ -9,7 +9,7 @@ import com.locadora.model.Item;
 public class ItemApplication extends GenericApplication<Item>{
 
     public ItemApplication(JpaRepository<Item, Long> repository){
-        super(repository);
+        super(repository, Item.class);
     }
 
 }

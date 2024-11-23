@@ -9,6 +9,6 @@ import com.locadora.model.Titulo;
 public class TituloApplication extends GenericApplication<Titulo>{
 
     public TituloApplication(JpaRepository<Titulo, Long> repository){
-        super(repository);
+        super(repository, Titulo.class);
     }
 }

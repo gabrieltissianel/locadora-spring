@@ -9,6 +9,6 @@ import com.locadora.model.Diretor;
 public class DiretorApplication extends GenericApplication<Diretor> {
 
     public DiretorApplication(JpaRepository<Diretor, Long> repository){
-        super(repository);
+        super(repository, Diretor.class);
     }
 }

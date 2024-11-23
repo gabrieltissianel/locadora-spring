@@ -9,6 +9,6 @@ import com.locadora.model.Classe;
 public class ClasseApplication extends GenericApplication<Classe> {
 
     public ClasseApplication(JpaRepository<Classe, Long> repository){
-        super(repository);
+        super(repository, Classe.class);
     }
 }
