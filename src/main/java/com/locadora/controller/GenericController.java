@@ -31,8 +31,8 @@ public class GenericController<E extends Identity> {
     }
 
     @DeleteMapping("/{id}")
-    public void remove(@PathVariable long id) {
-        genericApplication.remove(id);
+    public ResponseEntity<String> remove(@PathVariable long id) {
+       return genericApplication.remove(id);
     }
 
     @PostMapping("/edit")
