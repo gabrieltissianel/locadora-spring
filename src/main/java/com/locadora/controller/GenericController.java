@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.locadora.application.GenericApplication;
 import com.locadora.model.Identity;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -23,6 +26,14 @@ import lombok.AllArgsConstructor;
  * Esta classe expõe os endpoints para manipular as entidades do sistema.
  * @param <E> Entidade que estende Identity.
  */
+@OpenAPIDefinition(
+    info = @Info(
+        title = "Locadora",
+        version = "1.0.0",
+        description = "Trabalho web2",
+        contact = @Contact(name = "Murilo", email = "teste@gamil.com")
+    )
+)
 @Tag(name = "Entidades", description = "Endpoints genéricos para gerenciar entidades no sistema")
 @AllArgsConstructor
 public class GenericController<E extends Identity> {
