@@ -13,7 +13,6 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
@@ -29,7 +28,6 @@ public class Titulo implements Identity{
     @Column(length = 100, nullable = false)
     private String nome;
 
-    @Size(min = 0)
     @Column(nullable = false)
     private int ano;
 
@@ -39,15 +37,12 @@ public class Titulo implements Identity{
     @NotEmpty(message = "Categoria vazia")
     private String categoria;
 
-    @NotEmpty(message = "Diretor vazio")
     @ManyToOne
     private Diretor diretor;
 
-    @NotEmpty(message = "Classe vazia")
     @ManyToOne
     private Classe classe;
 
-    @NotEmpty(message = "Atores vazios")
     @ManyToMany
     @JoinTable(
         name = "ator_titulo",

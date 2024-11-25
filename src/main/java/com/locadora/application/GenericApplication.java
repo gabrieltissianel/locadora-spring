@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import com.locadora.exception.NotFoundException;
 import com.locadora.model.Identity;
 
 import lombok.AllArgsConstructor;
@@ -27,13 +28,13 @@ public class GenericApplication<E extends Identity> {
     }
 
     public ResponseEntity<String> remove(long id) {
-        objRepository.findById(id).orElseThrow(()-> new RuntimeException("Objeto não encontrado."));
-        objRepository.deleteById(id);
+        objRepository.findById(id).orElseThrow(()-> new NotFoundException(classe.getSimpleName()));
+        objRepository.deleteById(id);        
         return ResponseEntity.ok().body(classe.getSimpleName() + " excluido com sucesso"); 
     }
 
     public ResponseEntity<E> update(E obj) {
-        objRepository.findById(obj.getId()).orElseThrow(()-> new RuntimeException(classe.getSimpleName() + " não encontrado para edição."));
+        objRepository.findById(obj.getId()).orElseThrow(()-> new NotFoundException(classe.getSimpleName()));
         objRepository.save(obj);
         return ResponseEntity.ok().body(obj);
     }
