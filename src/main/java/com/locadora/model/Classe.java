@@ -26,10 +26,10 @@ public class Classe implements Identity{
     private String name;
 
     @NotNull(message = "Valor nulo")
-    @Size(min = 0, message = "Valor menor que 0")
+    @Min(value = 0, message = "Valor menor que 0")
     private double value;
 
-    @NotNull(message = "Data nula")
+    @NotNull(message = "Prazo nulo")
     @Min(value = 0)
     private int prazoDevolucao;
 }

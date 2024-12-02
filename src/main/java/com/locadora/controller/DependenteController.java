@@ -11,6 +11,9 @@ import com.locadora.application.DependenteApplication;
 import com.locadora.application.GenericApplication;
 import com.locadora.model.Dependente;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
@@ -26,4 +29,9 @@ public class DependenteController extends GenericController<Dependente>{
         return ((DependenteApplication) genericApplication).listSocioDependentes(id);
     }
 
+    @PostMapping("/trocarEstado")
+    public ResponseEntity<Dependente> trocarEstado(@RequestBody Dependente obj) {        
+        return ((DependenteApplication) genericApplication).trocarEstadoDoDependente(obj);
+    }
+    
 }

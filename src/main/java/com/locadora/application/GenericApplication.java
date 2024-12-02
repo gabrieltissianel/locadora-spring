@@ -16,7 +16,7 @@ public class GenericApplication<E extends Identity> {
 
     protected final JpaRepository<E, Long> objRepository;
 
-    private final Class classe;
+    private final Class<E> classe;
 
     public ResponseEntity<List<E>> list() {
         return ResponseEntity.ok().body(objRepository.findAll());

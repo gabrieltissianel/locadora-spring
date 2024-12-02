@@ -1,6 +1,6 @@
 package com.locadora.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,7 +25,7 @@ public class Item implements Identity{
 
     @NotNull(message = "Data vazia")
     @Column(nullable = false)
-    private Date dtAquisicao;
+    private LocalDate dtAquisicao;
 
     @NotNull(message = "Tipo nulo")
     @NotEmpty(message = "Tipo vazio")
