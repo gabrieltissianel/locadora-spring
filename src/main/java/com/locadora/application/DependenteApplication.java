@@ -5,9 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.locadora.model.Cliente;
 import com.locadora.model.Dependente;
-import com.locadora.model.Socio;
 import com.locadora.repository.DependenteRepository;
 
 @Service
